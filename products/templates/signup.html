@@ -1,0 +1,114 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <script src="../assets/js/color-modes.js"></script>
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="/static/images/89209165-ecommerce-icon-isolated-on-orange-round-button-abstract-illustration.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+
+    <style>
+        /* Your existing styles... */
+
+        .form-container {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            text-align: center;
+            height: 50vh;
+        }
+
+        .form-container form {
+            text-align: left;
+        }
+
+        .form-container div {
+            margin-bottom: 15px;
+        }
+
+        .form-container button {
+            
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body background="/static/images/pattern.jpg" class="d-flex align-items-center py-4 bg-body-tertiary">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <!-- Your existing SVG symbols... -->
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <!-- Your existing theme toggle dropdown... -->
+    </div>
+
+    <div class="form-container">
+        <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div>
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <p style="color: red;">{{ form.username.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Email -->
+            <div>
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <p style="color: red;">{{ form.email.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Password1 -->
+            <div>
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <p style="color: red;">{{ form.password1.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Password2 -->
+            <div>
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <p style="color: red;">{{ form.password2.errors }}</p>
+                {% endif %}
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    
+
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+
+</html>

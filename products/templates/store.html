@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        {% for product in products %}
+            <div class="col-lg-4">
+                {% if product.imageURL %}  
+				<!--  here i am checking if the product has an image in the database -->
+                    <img class="thumbnail" src="{{ product.imageURL }}" alt="{{ product.name }}">
+                {% elif product.image %}  
+				<!-- here i am Checking if the product has an image from the API  -->
+                    <img class="thumbnail" src="{{ product.image }}" alt="{{ product.title }}">
+                {% endif %}
+                <div class="box-element product">
+                    <h6><strong>
+                        {% if product.name %}  {# Check if the product is from the models #}
+                            {{ product.name }}
+                        {% elif product.title %}  {# Check if the product is from the API #}
+                            {{ product.title }}
+                        {% endif %}
+                    </strong></h6>
+                    <hr>
+
+                    <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="#">View</a>
+                    <h4 style="display: inline-block"  float: right><strong>${{ product.price }}</strong></h4>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
